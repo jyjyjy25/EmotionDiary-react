@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { DiaryStateContext } from "../App";
 
 import MyHeader from "./../components/MyHeader";
@@ -44,10 +44,13 @@ const Home = () => {
 
   const decreaseMonth = () => {
     setCurDate(
-      new Date(curDate.getFullYear(), curDate.getMonth() - 1, curDate.getDate())
+      new Date(
+        curDate.getFullYear(),
+        curDate.getMonth() - 1,
+        curDate.getMonth()
+      )
     );
   };
-
   return (
     <div>
       <MyHeader
