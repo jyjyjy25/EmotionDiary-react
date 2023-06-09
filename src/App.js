@@ -46,6 +46,7 @@ function App() {
   const [data, dispatch] = useReducer(reducer, []);
   const dataId = useRef(0);
 
+  // INIT
   useEffect(() => {
     const localData = localStorage.getItem("diary");
     if (localData) {
@@ -57,7 +58,6 @@ function App() {
       dispatch({ type: "INIT", data: diaryList });
     }
   }, []);
-
   // CREATE
   const onCreate = (date, content, emotion) => {
     dispatch({

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef, useState, useContext } from "react";
+import { useCallback, useEffect, useRef, useState, useContext } from "react";
 import { DiaryDispatchContext } from "../App";
 
 import { getStringDate } from "../util/date";
@@ -19,10 +19,6 @@ const DiaryEditor = ({ isEdit, originData }) => {
   const { onCreate, onEdit, onRemove } = useContext(DiaryDispatchContext);
 
   const navigate = useNavigate();
-
-  const handleClickEmote = (emotion) => {
-    setEmotion(emotion);
-  };
 
   const handleSubmit = () => {
     if (content.length < 1) {
@@ -95,7 +91,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
               <EmotionItem
                 key={it.emotion_id}
                 {...it}
-                onClick={handleClickEmote}
+                onClick={setEmotion}
                 isSelected={it.emotion_id === emotion}
               />
             ))}
