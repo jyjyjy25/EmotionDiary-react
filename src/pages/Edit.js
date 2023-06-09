@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { DiaryStateContext } from "../App";
+import { getStringDate } from "../util/date";
 
 import DiaryEditor from "../components/DiaryEditor";
 
@@ -20,6 +21,7 @@ const Edit = () => {
       if (targetDiary) {
         setOriginData(targetDiary);
       } else {
+        alert("없는 일기입니다.");
         navigate("/", { replace: true });
       }
     }
